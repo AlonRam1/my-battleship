@@ -27,14 +27,14 @@ Board::Board(Ship ships[NUM_OF_SHIPS])
 	this->ships.push_back(ships[2]);
 }
 		
-char (&get_board())[8][8]{return board;}
-vector<Ship>& get_ships(){return ships;}
-int get_num_of_active_ships(){return num_of_active_ships;}
+char (&Board::get_board())[8][8]{return board;}
+std::vector<Ship>& Board::get_ships(){return ships;}
+int Board::get_num_of_active_ships(){return num_of_active_ships;}
 		
-void set_ships(vector<Ship> ships){this->ships = ships;}
-void set_num_of_active_ships(int num_of_active_ships){this->num_of_active_ships = num_of_active_ships;}
+void Board::set_ships(std::vector<Ship> ships){this->ships = ships;}
+void Board::set_num_of_active_ships(int num_of_active_ships){this->num_of_active_ships = num_of_active_ships;}
 
-std::string board_to_string(const std::string& message) {
+std::string Board::board_to_string(const std::string& message) {
 	 std::ostringstream out;
 
 	 out << "    ";
@@ -132,7 +132,7 @@ bool Board::hit_or_miss(std::string s)
 	//iterate through all ship nodes on the board, and check if there is an active one in the given coordinates
 	for(int i = 0; i < ships.size(); i++)
 	{
-		vector<ShipNode>& current_nodes = ships[i].get_nodes();
+		std::vector<ShipNode>& current_nodes = ships[i].get_nodes();
 		for(int j = 0; j < current_nodes.size(); j++)
 		{
 			int h_pos = current_nodes[j].get_pos()[0], v_pos = current_nodes[j].get_pos()[1];
@@ -155,7 +155,7 @@ void Board::sink_node(std::string s)
 	//iterate through the ship nodes on the board, and change the activity of the relevant node
 	for(int i = 0; i < ships.size(); i++)
 	{
-		vector<ShipNode>& current_nodes = ships[i].get_nodes();
+		std::vector<ShipNode>& current_nodes = ships[i].get_nodes();
 		for(int j = 0; j < current_nodes.size(); j++)
 		{
 			int h_pos = current_nodes[j].get_pos()[0], v_pos = current_nodes[j].get_pos()[1];

@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>            
 #include <sys/socket.h>   
 #include <arpa/inet.h>   
@@ -5,7 +7,7 @@
 #include <netinet/in.h>   
 #include <cstdlib>
 
-#include "gameplay-logic/player.h"
+#include "player.h"
 
 class ServerSocket{
 	private:

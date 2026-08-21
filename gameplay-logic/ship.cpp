@@ -2,13 +2,14 @@
 #include <arpa/inet.h>   
 #include <unistd.h>       
 #include <netinet/in.h>
+#include <vector>
 #include "ship.h"
 #include "shipnode.h"
 
 
 
 
-Ship::Ship(vector<ShipNode> nodes, bool is_vertical)
+Ship::Ship(std::vector<ShipNode> nodes, bool is_vertical)
 {
 	this->nodes = nodes;
 	this->is_vertical = is_vertical;
@@ -16,7 +17,7 @@ Ship::Ship(vector<ShipNode> nodes, bool is_vertical)
 	this->num_of_active_nodes = nodes.size();
 }
 
-vector<ShipNode>& Ship::get_nodes(){return nodes;}
+std::vector<ShipNode>& Ship::get_nodes(){return nodes;}
 bool Ship::get_is_vertical(){return is_vertical;}
 int Ship::get_num_of_active_nodes(){return num_of_active_nodes;}
 int Ship::get_length(){return length;}

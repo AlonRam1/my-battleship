@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>       
 #include <string>         
 #include <cstring>       
@@ -10,34 +12,39 @@
 #include <cstdlib>
 #include "ship.h"
 #include "shipnode.h"
-
-#define NUM_OF_SHIPS 3
+#include "config.h"
 
 class Board{
 	private:
 		char board[8][8];
-		vector<Ship> ships;
+		std::vector<Ship> ships;
 		int num_of_active_ships = NUM_OF_SHIPS;
 
 	public:
-		Board();	
+		Board();
+
+		Board(Ship ships[NUM_OF_SHIPS]);
+
 		char (&get_board())[8][8];
 
-		vector<Ship>& get_ships();
+		std::vector<Ship>& get_ships();
 
 		int get_num_of_active_ships();
 
-		void set_ships(vector<Ship> ships);
+		void set_ships(std::vector<Ship> ships);
 
-		void set_num_of_active_ships(int num_of_active_ships){this->num_of_active_ships = num_of_active_ships;}
+		void set_num_of_active_ships(int num_of_active_ships);
 
 		std::string board_to_string(const std::string& message);
 
 		void update_board();
+
 		bool is_space_taken(int h, int v);
 
 		bool hit_or_miss(std::string s);
 
-		void sink_node(string s);
+		void sink_node(std::string s);
+		
+		bool is_ship_overlap(std::string s, bool is_vertical);
 };
 

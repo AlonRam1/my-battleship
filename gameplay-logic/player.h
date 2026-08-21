@@ -1,3 +1,5 @@
+#pragma once
+
 #include <string>         
 #include <cstring>       
 #include <sys/socket.h>   
@@ -5,8 +7,7 @@
 #include <unistd.h>       
 #include <netinet/in.h>  
 #include "board.h"
-
-#define BUFFER_SIZE 1024
+#include "config.h"
 
 class Player{
 	private:

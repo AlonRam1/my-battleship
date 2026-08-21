@@ -63,7 +63,7 @@ void Player::add_ship_to_player(const std::string& str)
 	else
 		is_vertical = true;
 	//translate string to coordinates, and create nodes
-	vector<ShipNode> nodes;
+	std::vector<ShipNode> nodes;
 	if(is_vertical)
 	{
 		int h = str[0] - '1';
@@ -87,7 +87,7 @@ void Player::add_ship_to_player(const std::string& str)
 	//initialize ship
 	Ship ship = Ship(nodes, is_vertical);
 	//add ship to player's board
-	vector<Ship> current_vector = player_board.get_ships();
+	std::vector<Ship> current_vector = player_board.get_ships();
 	current_vector.push_back(ship);
 	player_board.set_ships(current_vector);
 }
@@ -129,7 +129,7 @@ bool Player::check_valid_coordinates(const std::string& str, int desired_length)
 	else
 		return false;
 }
-bool Player::is_valid_target(string s)
+bool Player::is_valid_target(std::string s)
 {
 	//check if valid length
 	if(s.size() != 3)
@@ -145,9 +145,9 @@ bool Player::is_valid_target(string s)
 void Player::take_target(Player& enemy)
 {
 	//take coordinates from player
-	string s = "enter coordinates to attack (ex. A4, F6, D8)";
+	std::string s = "enter coordinates to attack (ex. A4, F6, D8)";
 	update_screen(s);
-	string coordinates = take_data();
+	std::string coordinates = take_data();
 	//check if valid coordinates
 	bool flag = is_valid_target(coordinates);
 	//enter loop until player gives valid coordinates
@@ -178,7 +178,7 @@ void Player::take_ships(bool is_player2)
 	//take ship positions and reprint the board each time
 	int bytes_received;
 	//first ship(size 2)
-	string s = "enter the coordinates of your first ship(length 2). should be in format <letter><num><num> or <num><letter><letter>: ";
+	std::string s = "enter the coordinates of your first ship(length 2). should be in format <letter><num><num> or <num><letter><letter>: ";
 	update_screen(s);
 	std::string coordinates1 = take_data();
 	bool flag = check_valid_coordinates(coordinates1, 2);
@@ -220,5 +220,5 @@ void Player::take_ships(bool is_player2)
 	if(is_player2)
 		update_screen("(waiting for enemy to pick target)");
 }
-};
+
 
