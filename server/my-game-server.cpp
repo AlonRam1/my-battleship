@@ -1,10 +1,10 @@
-#include <iostream>       // for console input/output
-#include <string>         // std::string for buffers/messages
-#include <cstring>        // for memset, memcpy, etc.
-#include <sys/socket.h>   // socket(), bind(), listen(), accept(), send(), recv()
-#include <arpa/inet.h>    // htons(), inet_addr(), sockaddr_in
-#include <unistd.h>       // close()
-#include <netinet/in.h>   // sockaddr_in structure
+#include <iostream>       
+#include <string>         
+#include <cstring>       
+#include <sys/socket.h>   
+#include <arpa/inet.h>   
+#include <unistd.h>       
+#include <netinet/in.h>   
 #include <iomanip>
 #include <vector>
 #include <cstdlib>
